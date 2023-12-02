@@ -5,3 +5,6 @@ let overflows = $draws | each { filter { |row| $row.red > 12 or $row.green > 13 
 let $result = $overflows | wrap num | merge ( $data | get id | into int | wrap id ) | filter { |g| $g.num == 0} | get id | math sum
 
 echo $result
+
+let $part2 = $draws | each { math max | transpose -i | get column0 | math product } | math sum;
+echo $part2
