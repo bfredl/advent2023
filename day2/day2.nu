@@ -6,5 +6,5 @@ let $result = $overflows | wrap num | merge ( $data | get id | into int | wrap i
 
 echo $result
 
-let $part2 = $draws | each { math max | transpose -i | get column0 | math product } | math sum;
+let $part2 = $draws | each { math max | transpose -i | math product } | math sum;
 echo $part2
